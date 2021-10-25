@@ -1,4 +1,6 @@
-pragma solidity ^0.5.0;
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
 
 contract VaccinePassport {
   uint public vaxxpassCount;
@@ -21,7 +23,7 @@ contract VaccinePassport {
   mapping(uint => VaccineDetails) public vaccineDetails;
 
   constructor() public {
-        AddVaccineDetail(
+        addVaccineDetail(
                         // card holder details
                         "Dibya Gautam",
                         "F",
@@ -36,7 +38,7 @@ contract VaccinePassport {
       }
 
 
-  function AddVaccineDetail(string memory _name,
+  function addVaccineDetail(string memory _name,
                             string memory _gender,
                             string memory _dob,
                             string memory _aadharID,
