@@ -7,3 +7,4 @@ Use https://www.dappuniversity.com/articles/blockchain-app-tutorial to set up th
 - `cd SmartContract/`
 - `npm i`
 - Download ganache from: `https://www.trufflesuite.com/ganache`
+- Make it executable using: `chmod u+x ganache-2.5.4-linux-x86_64.AppImage` 
