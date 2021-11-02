@@ -1,0 +1,133 @@
+.page {
+  display: flex;
+  height: 92vh;
+  width: 100vw;
+  justify-content: center;
+  overflow: scroll;
+}
+.left {
+  display: grid;
+  height: 100%;
+  width: 98%;
+  align-items: center;
+  justify-items: center;
+}
+.left-upper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.center {
+  display: grid;
+  height: 100%;
+  width: 98%;
+}
+.center-upper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+.center-lower {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.right {
+  display: grid;
+  height: 100%;
+  width: 98%;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+.right-upper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-para-text {
+  text-align: justify;
+  font-size: 20px;
+}
+.left-heading-text {
+  text-align: center;
+  font-size: 36px;
+}
+.center-lower-heading-text {
+  text-align: center;
+  font-size: 36px;
+}
+.center-lower-para-text {
+  text-align: justify;
+  font-size: 16px;
+}
+.right-para-text {
+  text-align: justify;
+  font-size: 20px;
+}
+.right-heading-text {
+  text-align: center;
+  font-size: 36px;
+}
+
+@media screen and (min-width: 640px) and (max-width: 900px) {
+  .left-para-text {
+    text-align: left;
+    font-size: 16px;
+  }
+  .left-heading-text {
+    text-align: center;
+    font-size: 28px;
+  }
+  .center-lower-heading-text {
+    text-align: center;
+    font-size: 28px;
+  }
+  .center-lower-para-text {
+    text-align: left;
+    font-size: 14px;
+  }
+  .right-para-text {
+    text-align: left;
+    font-size: 16px;
+  }
+  .right-heading-text {
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+  .left-para-text {
+    text-align: left;
+    font-size: 14px;
+  }
+  .left-heading-text {
+    text-align: center;
+    font-size: 16px;
+  }
+  .center-lower-heading-text {
+    text-align: center;
+    font-size: 16px;
+  }
+  .center-lower-para-text {
+    text-align: left;
+    font-size: 14px;
+  }
+  .right-para-text {
+    text-align: left;
+    font-size: 14px;
+  }
+  .right-heading-text {
+    text-align: center;
+    font-size: 16px;
+  }
+}
