@@ -81,7 +81,7 @@ contract HealthCareSignUp {
     {
         require(
             hcWorkerDatas[msg.sender].registered,
-            "Your address is not registered"
+            "Your ethereum address is not registered"
         );
         require(
             keccak256(abi.encodePacked(_license)) ==

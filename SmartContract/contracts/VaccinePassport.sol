@@ -22,7 +22,7 @@ contract VaccinePassport {
 
     mapping(uint256 => VaccineDetails) public vaccineDetails;
 
-    constructor() public {
+    constructor() {
         addVaccineDetail(
             // card holder details
             "Dibya Gautam",
