@@ -16,8 +16,7 @@ contract HealthCareSignUp {
         address indexed userAddress,
         string indexed email,
         string indexed license,
-        string affiliatedHospital,
-        uint256 signupTime
+        string affiliatedHospital
     );
 
     mapping(address => HCWorkerData) private hcWorkerDatas;
@@ -39,8 +38,6 @@ contract HealthCareSignUp {
         );
         _;
     }
-
-    constructor() public {}
 
     function signup(
         string memory _licenseID,
@@ -65,23 +62,17 @@ contract HealthCareSignUp {
         hcEmail[_emailID] = msg.sender;
         hcLicense[_licenseID] = msg.sender;
 
-        emit Registered(
-            msg.sender,
-            _emailID,
-            _licenseID,
-            _affiliatedHospital,
-            block.timestamp
-        );
+        emit Registered(msg.sender, _emailID, _licenseID, _affiliatedHospital);
     }
 
     function login(string memory _license, string memory _password)
         public
         view
-        returns (address, uint256)
+        returns (bool)
     {
         require(
             hcWorkerDatas[msg.sender].registered,
-            "Your ethereum address is not registered"
+            "Ethereum address not registered"
         );
         require(
             keccak256(abi.encodePacked(_license)) ==
@@ -95,7 +86,32 @@ contract HealthCareSignUp {
                 hcWorkerDatas[msg.sender].encryptedPassword,
             "Incorrect password"
         );
-        //emit Login(msg.sender,data[msg.sender].name,data[msg.sender].email,data[msg.sender].regId,now);
-        return (msg.sender, block.timestamp);
+        return (true);
+    }
+
+    function loginFromContract(
+        address sender,
+        string memory _license,
+        string memory _password
+    ) public view returns (bool) {
+        require(
+            hcWorkerDatas[sender].registered,
+            "Ethereum address not registered"
+        );
+        require(
+            keccak256(abi.encodePacked(_license)) ==
+                keccak256(abi.encodePacked(hcWorkerDatas[sender].licenseID)),
+            "Incorrect License Number"
+        );
+        require(
+            keccak256(abi.encodePacked(_password)) ==
+                hcWorkerDatas[sender].encryptedPassword,
+            "Incorrect password"
+        );
+        return (true);
+    }
+
+    function isregistered() public view returns (bool) {
+        return hcWorkerDatas[msg.sender].registered;
     }
 }
