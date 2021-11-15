@@ -2,40 +2,27 @@
 
 pragma solidity ^0.8.0;
 
-contract VaccinePassport {
-    uint256 public vaxxpassCount;
+import "./HealthCareSignUp.sol";
 
-    struct CardHolder {
-        string name;
-        string gender; // m/f/l/g/b/t/q
-        string dob; //dd-mm-yyyy
-        string aadharID;
-        string doseNo;
-    }
+contract VaccinePassport {
+    address public addressSignUp;
 
     struct VaccineDetails {
         string batchID;
         string vaccineName;
         string manufacturer;
         string placeOfVaccination;
+        bool registered;
     }
 
-    mapping(uint256 => VaccineDetails) public vaccineDetails;
+    mapping(bytes32 => VaccineDetails) public vaccineDetails;
 
-    constructor() {
-        addVaccineDetail(
-            // card holder details
-            "Dibya Gautam",
-            "F",
-            "24-12-1999",
-            "1234325345",
-            "2",
-            //vacc details
-            "2314",
-            "Covishield",
-            "Serum Institute",
-            "XYZ Hospital, Delhi"
-        );
+    constructor(address _address) {
+        setAddressSignUp(_address);
+    }
+
+    function alreadyAdded(bytes32 cardHolderID) public view returns (bool) {
+        return vaccineDetails[cardHolderID].registered;
     }
 
     function addVaccineDetail(
@@ -47,32 +34,56 @@ contract VaccinePassport {
         string memory _batchID,
         string memory _vaccineName,
         string memory _manufacturer,
-        string memory _placeOfVaccination
+        string memory _placeOfVaccination,
+        string memory _license,
+        string memory _password
     ) public {
+        require(
+            isLoggedIn(_license, _password),
+            "Login with valid license and password"
+        );
+
         VaccineDetails memory vaccineDetail = VaccineDetails(
             _batchID,
             _vaccineName,
             _manufacturer,
-            _placeOfVaccination
-        );
-        CardHolder memory cardHolder = CardHolder(
-            _name,
-            _gender,
-            _dob,
-            _aadharID,
-            _doseNo
+            _placeOfVaccination,
+            true
         );
 
-        uint256 cardHolderID = vaxxpassCount++; // change this to SHA256 of cardHolder
+        bytes32 cardHolderID = sha256(
+            abi.encode(_name, _gender, _dob, _aadharID, _doseNo)
+        );
 
-        // string cardHolderID = string(sha256(abi.encode(
-        //     cardHolder.name,
-        //     cardHolder.gender,
-        //     cardHolder.dob,
-        //     cardHolder.aadharID,
-        //     cardHolder.doseNo
-        // )));
+        require(!alreadyAdded(cardHolderID), "details already uploaded");
 
         vaccineDetails[cardHolderID] = vaccineDetail;
+    }
+
+    function verifyVaccineDetails(
+        string memory _name,
+        string memory _gender,
+        string memory _dob,
+        string memory _aadharID,
+        string memory _doseNo
+    ) public view returns (bool) {
+        bytes32 cardHolderID = sha256(
+            abi.encode(_name, _gender, _dob, _aadharID, _doseNo)
+        );
+
+        return vaccineDetails[cardHolderID].registered;
+    }
+
+    function setAddressSignUp(address _address) public {
+        addressSignUp = _address;
+    }
+
+    function isLoggedIn(string memory _license, string memory _password)
+        public
+        view
+        returns (bool)
+    {
+        HealthCareSignUp signup = HealthCareSignUp(addressSignUp);
+        return signup.loginFromContract(msg.sender, _license, _password);
     }
 }
