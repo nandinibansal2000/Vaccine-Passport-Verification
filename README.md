@@ -20,9 +20,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-  <li>
+<!--   <li> -->
       <li><a href="#contact">Contact</a></li>
-    </li>
+<!--     </li> -->
     
   </ol>
 </details>
