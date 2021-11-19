@@ -42,8 +42,6 @@ As a result, we propose to develop a COVID passport. A COVID passport (COVID-Pas
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * [React.js](https://reactjs.org/)
 * [Web3.js](https://web3js.readthedocs.io/en/v1.5.2/)
 * [Solidity](https://docs.soliditylang.org/en/v0.8.10//)
@@ -55,7 +53,6 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Installation
@@ -79,38 +76,6 @@ To get a local copy up and running follow these simple example steps.
 12. Start Frontend using `npm start`
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-
-
-
-# STEPS
-
-
 ### Truffle Console commands
 ```
 reg = await HealthCareSignUp.deployed()
@@ -121,3 +86,15 @@ vaxx.setAddressSignUp(reg.address)
 vaxx.addVaccineDetail("Dib", "F", "15-02-1999", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password")
 vaxx.verifyVaccineDetails("Dib", "F", "15-02-1999", "243252", "2")
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+* dibya18282@iiitd.ac.in
+* nandini18056@iiitd.ac.in
+* pruthwiraj18075@iiitd.ac.in
+
+
