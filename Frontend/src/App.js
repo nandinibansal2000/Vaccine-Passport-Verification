@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <Homepage></Homepage>
-       <div>
+       {/* <div>
         <h1>HI</h1>
         {!signedup ? (
           <button onClick ={() => signup()}> SIGNUP</button>
@@ -47,7 +47,7 @@ function App() {
         ):(
           <p>Logged In Successfully!</p>
         )}
-      </div>
+      </div> */}
     
     </>
   )
