@@ -69,7 +69,7 @@ git clone https://github.com/nandinibansal2000/Vaccine-Passport-Verification.git
   ```
   npm i
   ```
-4. Download ganache from:  [https://www.trufflesuite.com/ganache](https://www.trufflesuite.com/ganache)
+4. Download ganache from:  [https://www.trufflesuite.com/ganache](https://www.trufflesuite.com/ganache) or use ganache-cli
 5. Make it executable using: 
 ```
 chmod u+x ganache-2.5.4-linux-x86_64.AppImage
@@ -90,7 +90,17 @@ chmod u+x ganache-2.5.4-linux-x86_64.AppImage
 10. Add ether to your wallet 
   - Click on import account in metamask  
   - Use one of the private keys displayed in the output of `npx ganache-cli`.
-11. Start Frontend using `npm start`
+11. Go to Frontend Directory
+```
+cd Frontend/
+```
+12. Install Dependencies
+```
+ npm i
+```
+14. Start Frontend using 
+ ```npm start
+ ```
 
 
 ### Truffle Console commands
