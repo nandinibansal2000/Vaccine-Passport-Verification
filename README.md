@@ -8,8 +8,14 @@
 - `npm install -g truffle@5.0.2`
 - Download ganache from: `https://www.trufflesuite.com/ganache`
 - Make it executable using: `chmod u+x ganache-2.5.4-linux-x86_64.AppImage` 
+- open ganache cli using `npx ganache-cli`
 - run `truffle migrate`
 - open console using `truffle console`
+- Connect to metamask from your browser using custom RPC or localhost 8545.
+- Add ether to your wallet 
+  - Click on import account in metamask  
+  - Use one of the private keys displayed in the output of `npx ganache-cli`.
+- Start Frontend using `npm start`
 
 
 ### Truffle Console commands
