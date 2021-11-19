@@ -34,16 +34,9 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+The COVID-19 pandemic has become a highly transmissible disease which has caused a disastrous impact worldwide by adversely affecting the global economy, health, and human lives. This sudden explosion and uncontrolled worldwide spread of COVID-19 has revealed the limitations of existing healthcare systems regarding handling public health emergencies. With its onset, Vaccination Certificates have become the means of verifying one’s vaccination status. With improvements in technology occurring everyday, the means of ‘faking’ these vaccination certificates is getting easier day by day. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+As a result, we propose to develop a COVID passport. A COVID passport (COVID-Pass) is a system that allows people to show if they have been vaccinated against COVID-19. It is a Blockchain-based secure platform for issuing and verifying COVID-19 vaccine certificates. The passport is seen as a means to reduce infections, ease the blockade and promote movement in the coronavirus world.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
