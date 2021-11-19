@@ -12,7 +12,9 @@
 - run `truffle migrate`
 - open console using `truffle console`
 - Connect to metamask from your browser using custom RPC or localhost 8545.
-- Add ether to your wallet using one of the private keys displayed in the output of `npx ganache-cli`.
+- Add ether to your wallet 
+  - Click on import account in metamask  
+  - Use one of the private keys displayed in the output of `npx ganache-cli`.
 - Start Frontend using `npm start`
 
 
