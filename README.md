@@ -34,7 +34,7 @@
 
 The COVID-19 pandemic has become a highly transmissible disease which has caused a disastrous impact worldwide by adversely affecting the global economy, health, and human lives. This sudden explosion and uncontrolled worldwide spread of COVID-19 has revealed the limitations of existing healthcare systems regarding handling public health emergencies. With its onset, Vaccination Certificates have become the means of verifying one’s vaccination status. With improvements in technology occurring everyday, the means of ‘faking’ these vaccination certificates is getting easier day by day. 
 
-As a result, we propose to develop a COVID passport. A COVID passport (COVID-Pass) is a system that allows people to show if they have been vaccinated against COVID-19. It is a `Blockchain-based secure platform for issuing and verifying COVID-19 vaccine certificates`. The passport is seen as a means to reduce infections, ease the blockade and promote movement in the coronavirus world.
+As a result, we propose to develop a COVID passport. A COVID passport (COVID-Pass) is a system that allows people to show if they have been vaccinated against COVID-19. It is a `Blockchain-based secure platform for issuing and verifying COVID-19 vaccine certificates`. The passport is seen as a means to reduce malpratices and eases the process of verification of COVID Vaccine Certificates.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
