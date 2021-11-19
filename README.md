@@ -57,25 +57,40 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 1.  Clone the repo
-```git clone https://github.com/nandinibansal2000/Vaccine-Passport-Verification.git```
-2. ```cd SmartContract/```
-3. ```npm i```
+```
+git clone https://github.com/nandinibansal2000/Vaccine-Passport-Verification.git
+```
+2. Go to Smart Contract Directory
+  ```
+  cd SmartContract/
+  ```
+
+3. Install dependencies
+  ```
+  npm i
+  ```
 4. Download ganache from:  [https://www.trufflesuite.com/ganache](https://www.trufflesuite.com/ganache)
 5. Make it executable using: 
-```chmod u+x ganache-2.5.4-linux-x86_64.AppImage```
-7. Open ganache cli using 
+```
+chmod u+x ganache-2.5.4-linux-x86_64.AppImage
+```
+6. Open ganache cli using 
   ```
   npx ganache-cli
   ```
-8. Run 
- ```truffle migrate```
-9. Open console using 
- ```truffle console```
-10. Connect to metamask from your browser using custom RPC or localhost 8545.
-11. Add ether to your wallet 
+7. Run 
+ ```
+ truffle migrate
+ ```
+8. Open console using 
+ ```
+ truffle console
+ ```
+9. Connect to metamask from your browser using custom RPC or localhost 8545.
+10. Add ether to your wallet 
   - Click on import account in metamask  
   - Use one of the private keys displayed in the output of `npx ganache-cli`.
-12. Start Frontend using `npm start`
+11. Start Frontend using `npm start`
 
 
 ### Truffle Console commands
