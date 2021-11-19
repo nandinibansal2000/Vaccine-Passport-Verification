@@ -80,11 +80,11 @@ chmod u+x ganache-2.5.4-linux-x86_64.AppImage
   ```
 7. Run 
  ```
- truffle migrate
+ npx truffle migrate
  ```
 8. Open console using 
  ```
- truffle console
+ npx truffle console
  ```
 9. Connect to metamask from your browser using custom RPC or localhost 8545.
 10. Add ether to your wallet 
@@ -96,7 +96,7 @@ cd Frontend/
 ```
 12. Install Dependencies
 ```
- npm i
+npm i
 ```
 14. Start Frontend using 
  ```
