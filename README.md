@@ -64,7 +64,8 @@ To get a local copy up and running follow these simple example steps.
 5. Make it executable using: 
 ```chmod u+x ganache-2.5.4-linux-x86_64.AppImage```
 7. Open ganache cli using 
-  ```npx ganache-cli
+  ```
+  npx ganache-cli
   ```
 8. Run 
  ```truffle migrate```
