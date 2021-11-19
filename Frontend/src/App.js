@@ -1,12 +1,33 @@
-import "./App.css";
+import React, { useState } from "react";
 import Homepage from "./pages/Homepage";
-// import Healthcare from "./pages/Healthcare";
+import { signupToken } from "./Web3Client";
 
 function App() {
+  const [signedup, setSignedup] = useState(false);
+
+  const signup = () => {
+    signupToken()
+      .then((tx) => {
+        setSignedup(true);
+        console.log(tx);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
-      {/* <Healthcare></Healthcare> */}
       <Homepage></Homepage>
+      {/* <div>
+      <h1>HI</h1>
+      {!signedup ? (
+         <button onClick ={() => signup()}> SIGNUP</button>
+      ):(
+        <p>Signedup Successfully!</p>
+      )}
+      </div> */}
+      );
     </>
   );
 }
