@@ -1,9 +1,30 @@
-import React from "react";
+import React, {useState} from 'react'
 import Header from "../components/Header";
 import UploadButton from "../components/UploadButton";
-import "./Healthcare.css";
+import "./Verify.css";
+import CreateQRButton from '../components/CreateQRButton';
 
-export default function Homepage() {
+export default function Verify() {
+  const [qrJsonData, setQrscan_] = useState(null); 
+  const[verified, setVerified] = useState(null);
+
+  // TODO nandini: call verifyVaccineDetails
+  const verify = () =>{
+      // if scan was successful, call verify function
+      if (qrJsonData){
+
+      }
+     // if verified, setVerified(true);
+      // if verificaition fails, setVerified(false);
+  }
+
+  const setQrscan = (data) => {
+    var data_ = JSON.parse(data);
+    console.log(data_);
+    setQrscan_(data_);
+    console.log(qrJsonData, "ff");
+  };
+  
   return (
     <>
       <Header />
@@ -30,9 +51,19 @@ export default function Homepage() {
         </div>
         <div className="center">
           <div className="center-upper">
-            <UploadButton></UploadButton>
+            <div style={{paddingTop:"50px"}}>
+                <UploadButton 
+                    qrJsonData={qrJsonData}
+                    setQrscan={setQrscan}
+                    verified={verified}
+                />
+                <CreateQRButton/>
+            </div>
+            
           </div>
+
           <div className="center-lower">
+
             <h1 className="center-lower-heading-text">
               WHAT ARE THE DIFFERENT TYPES OF COVID-19 VACCINES?
             </h1>
