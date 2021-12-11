@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Homepage from "./pages/Homepage";
 import AddPassport from "./pages/AddPassport";
 import Verify from "./pages/Verify";
-// import { signupToken, loginToken } from './Web3Client';
+import { signupToken, loginToken } from './Web3Client';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,32 +13,21 @@ import {
 
 function App() {
   const [signedup, setSignedup] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
 
-  const signup = () => {
-    // signupToken()
-    //   .then((tx) => {
-    //     setSignedup(true);
-    //     console.log(tx);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    // })
-  }
-
-   const login = () => {
-    // loginToken()
-    // .then(tx =>{
-    //    setLoggedIn(true);
-    //    console.log(tx);
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // })
-  }
+    const signup = () => {
+        signupToken()
+        .then((tx) => {
+            setSignedup(true);
+            console.log(tx);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
 
   
   return (
+
     <>
       <Router>
         <Routes>
@@ -48,7 +38,6 @@ function App() {
       </Router>
     </>
     // <>
-    //   <Homepage></Homepage>
     //    <div>
     //     <h1>HI</h1>
     //     {!signedup ? (
@@ -59,11 +48,6 @@ function App() {
     //     <br></br>
     //     <br></br>
 
-    //     {!loggedIn ? (
-    //       <button onClick ={() => login()}> LOGIN</button>
-    //     ):(
-    //       <p>Logged In Successfully!</p>
-    //     )}
     //   </div>
      
     // </>
