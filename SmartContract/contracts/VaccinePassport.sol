@@ -17,9 +17,9 @@ contract VaccinePassport {
 
     mapping(bytes32 => VaccineDetails) public vaccineDetails;
 
-    constructor(address _address) {
-        setAddressSignUp(_address);
-    }
+    // constructor(address _address) {
+    //     setAddressSignUp(_address);
+    // }
 
     function alreadyAdded(bytes32 cardHolderID) public view returns (bool) {
         return vaccineDetails[cardHolderID].registered;
@@ -34,14 +34,12 @@ contract VaccinePassport {
         string memory _batchID,
         string memory _vaccineName,
         string memory _manufacturer,
-        string memory _placeOfVaccination,
-        string memory _license,
-        string memory _password
+        string memory _placeOfVaccination
     ) public {
-        require(
-            isLoggedIn(_license, _password),
-            "Login with valid license and password"
-        );
+        // require(
+        //     isLoggedIn(_license, _password),
+        //     "Login with valid license and password"
+        // );
 
         VaccineDetails memory vaccineDetail = VaccineDetails(
             _batchID,
@@ -74,16 +72,16 @@ contract VaccinePassport {
         return vaccineDetails[cardHolderID].registered;
     }
 
-    function setAddressSignUp(address _address) public {
-        addressSignUp = _address;
-    }
+    // function setAddressSignUp(address _address) public {
+    //     addressSignUp = _address;
+    // }
 
-    function isLoggedIn(string memory _license, string memory _password)
-        public
-        view
-        returns (bool)
-    {
-        HealthCareSignUp signup = HealthCareSignUp(addressSignUp);
-        return signup.loginFromContract(msg.sender, _license, _password);
-    }
+    // function isLoggedIn(string memory _license, string memory _password)
+    //     public
+    //     view
+    //     returns (bool)
+    // {
+    //     HealthCareSignUp signup = HealthCareSignUp(addressSignUp);
+    //     return signup.loginFromContract(msg.sender, _license, _password);
+    // }
 }
