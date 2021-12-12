@@ -36,14 +36,15 @@ const Login = () => {
     };
     return (
         <>
-        <LoginModal
+         <LoginModal
         handleSignup={handleSignup}
         handleLogin={handleLogin}
         buttonColor={"#52AE64"}
         disabledButtonColor={"#C7E4CD"}
         buttonHoverColor={"#A7D5B0"}
         
-        />
+        /> 
+        
 
 
 

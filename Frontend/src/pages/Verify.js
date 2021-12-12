@@ -3,7 +3,9 @@ import Header from "../components/Header";
 import UploadButton from "../components/UploadButton";
 import "./Verify.css";
 import CreateQRButton from '../components/CreateQRButton';
-import { verifyVaccineDetailToken } from '../Web3Client';
+import { verifyVaccineDetailsToken } from '../Web3Client';
+import LoginButton from '../components/LoginButton';
+import SignInButton from '../components/SignInButton';
 
 
 export default function Verify() {
@@ -17,7 +19,7 @@ export default function Verify() {
         console.log(qrJsonData);
         // 
         try{
-        //  await verifyVaccineDetailToken(name, dob, aadharID, doseNo);
+          await verifyVaccineDetailsToken(qrJsonData.name, qrJsonData.dob, qrJsonData.aadharId, qrJsonData.doseNo);
           console.log("Verified vaccine details");
           }
         catch{
@@ -30,10 +32,11 @@ export default function Verify() {
       // if verificaition fails, setVerified(false);
   }
 
-  const setQrscan = (data) => {
+  const setQrscan = async(data) => {
     var data_ = JSON.parse(data);
     console.log(data_);
     setQrscan_(data_);
+    await verify();
     console.log(qrJsonData, "ff");
   };
   
@@ -70,6 +73,8 @@ export default function Verify() {
                     verified={verified}
                 />
                 <CreateQRButton/>
+                <LoginButton/>
+                <SignInButton/>
             </div>
             
           </div>

@@ -17,9 +17,9 @@ contract VaccinePassport {
 
     mapping(bytes32 => VaccineDetails) public vaccineDetails;
 
-    constructor(address _address) {
-        setAddressSignUp(_address);
-    }
+    // constructor(address _address) {
+    //     setAddressSignUp(_address);
+    // }
 
     function alreadyAdded(bytes32 cardHolderID) public view returns (bool) {
         return vaccineDetails[cardHolderID].registered;
@@ -70,7 +70,7 @@ contract VaccinePassport {
         bytes32 cardHolderID = sha256(
             abi.encode(_name, _gender, _dob, _aadharID, _doseNo)
         );
-
+        require(vaccineDetails[cardHolderID].registered, "verified");
         return vaccineDetails[cardHolderID].registered;
     }
 
