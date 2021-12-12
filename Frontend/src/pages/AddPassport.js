@@ -13,6 +13,8 @@ import PropTypes from "prop-types";
 import { Dropdown } from "semantic-ui-react";
 import "semantic-ui-css/components/dropdown.min.css";
 import DatePicker from "react-datepicker";
+import { addVaccineDetailToken } from '../Web3Client';
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -76,7 +78,7 @@ const StyledDropdown = styled(Dropdown)`
   };
 
   // Nandini TODO: call addVaccineDetail
-  const handleSubmitIssue = () =>{
+  const handleSubmitIssue = async () =>{
       let dob_ = dob.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'});
       console.log(name);
       console.log(gender);
@@ -89,6 +91,14 @@ const StyledDropdown = styled(Dropdown)`
       console.log(placeOfVaxx);
       console.log(license);
       console.log(password);
+      try{
+         await addVaccineDetailToken(name , gender, dob_, aadharId, doseNo, batchId, vaccineName, manufacturer, placeOfVaxx,license, password);
+        console.log("Added vaccine details")
+        }
+      catch{
+        console.log("Failed")
+      }
+     
 
       // if submitted, setSubmitted(true);
       // if submission fails, setSubmitted(false);

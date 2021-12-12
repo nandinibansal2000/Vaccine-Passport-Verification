@@ -30,6 +30,7 @@ export const init = async () => {
 
       const web3 = new Web3(provider);
       const networkId = await web3.eth.net.getId();
+      console.log(networkId);
 
       HealthCareSignUpContract = new web3.eth.Contract(HealthCareSignUpBuild.abi,HealthCareSignUpBuild.networks[networkId].address );
       VaccinePassportContract = new web3.eth.Contract(VaccinePassportBuild.abi,VaccinePassportBuild.networks[networkId].address );
@@ -46,23 +47,28 @@ export const signupToken = async () => {
 }
 
 
-export const loginToken = async () => {
+export const loginToken = async (email , password) => {
     if(!isIntialized){
         await init();
     }
-    return HealthCareSignUpContract.methods.login("243534345", "password").send({from  : selectedAccount});
+    // return HealthCareSignUpContract.methods.login("243534345", "password").send({from  : selectedAccount});
+    return HealthCareSignUpContract.methods.login(email, password).send({from  : selectedAccount});
 }
 
-export const addVaccineDetailToken = async () => {
+export const addVaccineDetailToken = async (name , gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password) => {
+
     if(!isIntialized){
         await init();
     }
-    // return VaccinePassportContract.methods.addVaccineDetail().send({from  : selectedAccount});
+    // return VaccinePassportContract.methods.addVaccineDetail("Dib", "F", "15-02-1999", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password").send({from  : selectedAccount});
+    return VaccinePassportContract.methods.addVaccineDetail(name, gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password).send({from  : selectedAccount});
 }
 
-export const verifyVaccineDetailsToken = async () => {
+export const verifyVaccineDetailsToken = async (name, dob, aadharID, doseNo) => {
     if(!isIntialized){
         await init();
     }
-    // return VaccinePassportContract.methods.verifyVaccineDetails().send({from  : selectedAccount});
-}
+    // return VaccinePassportContract.methods.verifyVaccineDetails("Dib", "F", "12/12/2021", "243252", "2").send({from  : selectedAccount});
+    return VaccinePassportContract.methods.verifyVaccineDetails(name, dob, aadharID, doseNo).send({from  : selectedAccount});
+
+  }

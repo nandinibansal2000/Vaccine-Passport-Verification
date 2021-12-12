@@ -3,15 +3,27 @@ import Header from "../components/Header";
 import UploadButton from "../components/UploadButton";
 import "./Verify.css";
 import CreateQRButton from '../components/CreateQRButton';
+import { verifyVaccineDetailToken } from '../Web3Client';
+
 
 export default function Verify() {
   const [qrJsonData, setQrscan_] = useState(null); 
   const[verified, setVerified] = useState(null);
 
   // TODO nandini: call verifyVaccineDetails
-  const verify = () =>{
+  const verify = async () =>{
       // if scan was successful, call verify function
       if (qrJsonData){
+        console.log(qrJsonData);
+        // 
+        try{
+        //  await verifyVaccineDetailToken(name, dob, aadharID, doseNo);
+          console.log("Verified vaccine details");
+          }
+        catch{
+          console.log("Failed");
+        }
+      
 
       }
      // if verified, setVerified(true);
