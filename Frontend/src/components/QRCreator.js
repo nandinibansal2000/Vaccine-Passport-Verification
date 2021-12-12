@@ -59,11 +59,16 @@ function QRCreator({isOpen, setOpen}) {
 
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
-  const [dob, setDob] = useState(new Date());
+  const [dob, setDob] = useState("");
   const [aadharId, setAadharId] = useState("");
   const [doseNo, setDoseNo] = useState(0);
  
   const [submit, handleSubmit_] = useState(false);
+
+  const setDob_ = (date) => {
+    let dob_ = date.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'});
+    setDob(dob_);
+  }
 
   var qr = {
       "name": name,
@@ -136,7 +141,7 @@ function QRCreator({isOpen, setOpen}) {
     
             <Container>
               <p style={{width: "150px"}}>Date of Birth:</p>
-              <DatePicker selected={dob} onChange={(date) => setDob(date)} />
+              <DatePicker selected={dob} onChange={(date) => setDob_(date)} />
             </Container>
               <br></br>
               <Container>
