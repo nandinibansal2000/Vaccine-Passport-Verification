@@ -92,7 +92,7 @@ const StyledDropdown = styled(Dropdown)`
       console.log(license);
       console.log(password);
       try{
-         await addVaccineDetailToken(name , gender, dob_, aadharId, doseNo, batchId, vaccineName, manufacturer, placeOfVaxx,license, password);
+         await addVaccineDetailToken(name, gender, dob_, aadharId, doseNo, batchId, vaccineName, manufacturer, placeOfVaxx,license, password);
         console.log("Added vaccine details")
         }
       catch{

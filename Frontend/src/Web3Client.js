@@ -39,11 +39,12 @@ export const init = async () => {
 }
 
 
-export const signupToken = async () => {
+export const signupToken = async (license, hospital, email, password) => {
     if(!isIntialized){
         await init();
     }
-    return HealthCareSignUpContract.methods.signup("243534345", "XYZ hospital", "abc@xyz.com", "password").send({from  : selectedAccount});
+    // return HealthCareSignUpContract.methods.signup("243534345", "XYZ hospital", "abc@xyz.com", "password").send({from  : selectedAccount});
+    return HealthCareSignUpContract.methods.signup(license, hospital, email, password).send({from  : selectedAccount});
 }
 
 
@@ -55,12 +56,13 @@ export const loginToken = async (email , password) => {
     return HealthCareSignUpContract.methods.login(email, password).send({from  : selectedAccount});
 }
 
-export const addVaccineDetailToken = async (name , gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password) => {
+export const addVaccineDetailToken = async (name, gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password) => {
 
     if(!isIntialized){
         await init();
     }
-    // return VaccinePassportContract.methods.addVaccineDetail("Dib", "F", "15-02-1999", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password").send({from  : selectedAccount});
+    await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
+    // await VaccinePassportContract.methods.addVaccineDetail("Dibya", "F", "12/12/2021", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password").send({from  : selectedAccount});
     return VaccinePassportContract.methods.addVaccineDetail(name, gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password).send({from  : selectedAccount});
 }
 
@@ -68,7 +70,12 @@ export const verifyVaccineDetailsToken = async (name, dob, aadharID, doseNo) => 
     if(!isIntialized){
         await init();
     }
-    // return VaccinePassportContract.methods.verifyVaccineDetails("Dib", "F", "12/12/2021", "243252", "2").send({from  : selectedAccount});
-    return VaccinePassportContract.methods.verifyVaccineDetails(name, dob, aadharID, doseNo).send({from  : selectedAccount});
-
+    console.log(name);
+    console.log(dob);
+    console.log(aadharID);
+    console.log(doseNo);
+    await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
+    // var verified = await  VaccinePassportContract.methods.verifyVaccineDetails("Dibya", "F", "12/12/2021", "243252", "2").send({from  : selectedAccount});
+    var verified  = await VaccinePassportContract.methods.verifyVaccineDetails(name, dob, aadharID, doseNo).send({from  : selectedAccount});
+    console.log(verified);
   }

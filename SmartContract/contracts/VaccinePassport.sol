@@ -68,7 +68,7 @@ contract VaccinePassport {
         bytes32 cardHolderID = sha256(
             abi.encode(_name, _gender, _dob, _aadharID, _doseNo)
         );
-
+        require(vaccineDetails[cardHolderID].registered, "verified");
         return vaccineDetails[cardHolderID].registered;
     }
 
