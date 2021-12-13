@@ -95,7 +95,8 @@ const StyledDropdown = styled(Dropdown)`
          await addVaccineDetailToken(name, gender, dob_, aadharId, doseNo, batchId, vaccineName, manufacturer, placeOfVaxx,license, password);
         console.log("Added vaccine details")
         }
-      catch{
+      catch(error){
+        console.log(error)
         console.log("Failed")
       }
      

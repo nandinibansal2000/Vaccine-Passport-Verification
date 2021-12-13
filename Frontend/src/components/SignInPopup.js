@@ -96,7 +96,7 @@ function SignInPopup({isOpen, setOpen}) {
      let popup = null;
         popup = (
         <div style={{width: "50%", padding: "10px", marginLeft:"25%", backgroundColor:""}}>
-            <H1> Enter SignIn Details </H1>
+            <H1> Enter SignUp Details </H1>
     
             <fieldset style={{ marginRight: "5%", border: "none" }}>
             

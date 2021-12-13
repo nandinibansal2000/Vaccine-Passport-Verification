@@ -2,9 +2,8 @@ var VaccinePassport = artifacts.require("./VaccinePassport.sol");
 var Registration = artifacts.require("./HealthCareSignUp.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Registration).then(function(Registration) {
-      deployer.deploy(VaccinePassport, Registration.address);
-  });
+  deployer.deploy(Registration);
+  deployer.deploy(VaccinePassport);
 };
 
 /*

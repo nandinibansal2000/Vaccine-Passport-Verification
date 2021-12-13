@@ -17,12 +17,13 @@ export default function Verify() {
       // if scan was successful, call verify function
       if (qrJsonData){
         console.log(qrJsonData);
-        // 
+    
         try{
-          await verifyVaccineDetailsToken(qrJsonData.name, qrJsonData.dob, qrJsonData.aadharId, qrJsonData.doseNo);
+          await verifyVaccineDetailsToken(qrJsonData.name,qrJsonData.gender, qrJsonData.dob, qrJsonData.aadharId, qrJsonData.doseNo);
           console.log("Verified vaccine details");
           }
-        catch{
+        catch(error){
+          console.log(error);
           console.log("Failed");
         }
       

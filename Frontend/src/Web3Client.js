@@ -61,21 +61,27 @@ export const addVaccineDetailToken = async (name, gender, dob, aadharID, doseNo,
     if(!isIntialized){
         await init();
     }
-    await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
-    // await VaccinePassportContract.methods.addVaccineDetail("Dibya", "F", "12/12/2021", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password").send({from  : selectedAccount});
-    return VaccinePassportContract.methods.addVaccineDetail(name, gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination,license, password).send({from  : selectedAccount});
-}
-
-export const verifyVaccineDetailsToken = async (name, dob, aadharID, doseNo) => {
-    if(!isIntialized){
-        await init();
-    }
+    // await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
     console.log(name);
     console.log(dob);
     console.log(aadharID);
     console.log(doseNo);
-    await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
+    console.log("--------------");
+    // await VaccinePassportContract.methods.addVaccineDetail("Dibya", "F", "12/12/2021", "243252", "2", "21432", "Covishield", "Serum", "XYZ hospital", "243534345", "password").send({from  : selectedAccount});
+    return VaccinePassportContract.methods.addVaccineDetail(name, gender, dob, aadharID, doseNo, batchID, vaccineName, manufacturer, placeOfVaccination).send({from  : selectedAccount});
+}
+
+export const verifyVaccineDetailsToken = async (name, gender, dob_, aadharID, doseNo) => {
+    if(!isIntialized){
+        await init();
+    }
+    console.log(name);
+    console.log(dob_);
+    console.log(aadharID);
+    console.log(doseNo);
+    console.log("###############");
+    // await VaccinePassportContract.methods.setAddressSignUp(HealthCareSignUpContract._address).send({from  : selectedAccount});
     // var verified = await  VaccinePassportContract.methods.verifyVaccineDetails("Dibya", "F", "12/12/2021", "243252", "2").send({from  : selectedAccount});
-    var verified  = await VaccinePassportContract.methods.verifyVaccineDetails(name, dob, aadharID, doseNo).send({from  : selectedAccount});
+    var verified  = await VaccinePassportContract.methods.verifyVaccineDetails(name,gender,  dob_, aadharID, doseNo).send({from  : selectedAccount});
     console.log(verified);
   }

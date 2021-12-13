@@ -21,7 +21,7 @@ export default function SignInButton() {
     
     <>
     
-      <Button onClick={handleClick}>SignIn</Button>
+      <Button onClick={handleClick}>SignUp</Button>
       {isOpen && <SignInPopup isOpen={isOpen} setOpen={setOpen_}/>}
     </>
   );
